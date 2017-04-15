@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cpa"
+  id="myeclipse.1484222641213"
+  context-root="/cpa"
+  j2ee-spec="1.7"
+  archive="cpa.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

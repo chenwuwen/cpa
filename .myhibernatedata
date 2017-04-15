@@ -1,0 +1,24 @@
+#MyEclipse Hibernate Properties
+#Thu Jan 12 20:20:04 CST 2017
+sessionFactoryName=cn.kanyun.cpa.pojo.HibernateSessionFactory
+genBasicCompId=false
+profile=
+daoSFId=
+version=4.1
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+libInstallFolder=src/main/webapp/WEB-INF/lib
+addLibs2Project=false
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=/cpa/hibernate.reveng.xml
+configFile=/cpa/src/main/resources/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=false

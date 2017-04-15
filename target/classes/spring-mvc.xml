@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+    <!-- 1：注解的方式，引入组件的自动扫描，在类和方法上可以添加对注解的支持 -->
+    <!-- 这是SpringMVC的配置文件，这里的扫描仅仅针对@Controller和@Handlermapping来说的，而Spring配置
+        文件中的扫描是针对@Service @Repository，@Components来说的，Spring是桥梁, 而SpringMVC更专注了控制和转发，所以虽然两者都要进行注解扫描，但是所扫描的
+        内容是不一样的 -->
+    <context:component-scan base-package="cn.kanyun.cpa.controller,cn.kanyun.cpa.util"/>
+    <!-- 通知spring使用cglib而不是jdk的来生成代理方法，这样 AOP可以拦截到Controller -->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <!-- 据说是如果静态资源放在WEB-INF下，使用该命令可以加载，但是为了安全静态资源应该加载webroot下 -->
+    <!--使用该配置的前提是web.xml里的DispatcherServlet设置的是拦截所有请求（<url-pattern>/</url-pattern>）-->
+    <!--如果只是拦截.do请求(<url-pattern>*.do</url-pattern>)，则不必设置该配置-->
+    <!-- <mvc:default-servlet-handler/> -->
+
+    <!-- handlermapping 支持@RequestMapping,@ReponseBody,@Exceptionhandler -->
+    <mvc:annotation-driven/>
+    <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
+    <!-- 配置ViewResolver视图解析器 -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
+        <property name="prefix" value="/WEB-INF/page/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+    <!-- 文件上传配置 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding">
+            <value>UTF-8</value>
+        </property>
+        <property name="maxUploadSize">
+            <value>1048576000</value><!-- 总上传文件大小限制为1000M，31*1024*1024 -->
+        </property>
+        <property name="maxInMemorySize">
+            <value>4096</value>
+        </property>
+    </bean>
+</beans>

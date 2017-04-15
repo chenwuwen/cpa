@@ -1,0 +1,86 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Badge Sign In Form Flat Responsive Widget Template :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords"
+          content="Badge Sign In Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- Custom Theme files -->
+    <link href="./css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <!--引入jquery时需要注意，bootstrap3.3.7支持jquery3.1，如果引入了不对应版本的jquery，则会出错，bootstrap的有些效果会不显示-->
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <!--引入sweetalert2的js脚本-->
+    <script src="js/sweetalert2.min.js"></script>
+    <!--为使IE浏览器(IE10以上)支持sweetalert2需引入该脚本-->
+    <script src="js/promise.min.js"></script>
+    <script src="scripts/register.js"></script>
+    <script src="scripts/v_code.js"></script>
+</head>
+<body>
+<!-- main -->
+<div class="main">
+    <div class="login-form">
+        <div class="agileits-top">
+            <!-- 	<form method="post"> -->
+            <div class="styled-input">
+                <input type="text" name="User_Name" required=""/>
+                <label>用户名</label>
+                <span></span>
+            </div>
+            <div class="styled-input">
+                <input type="password" name="Password" required="">
+                <label>密 码</label>
+                <span></span>
+            </div>
+            <div class="styled-input">
+                <input type="password" name="repeat_Password" required="">
+                <label>重复密码</label>
+                <span></span>
+            </div>
+
+            <div class="styled-input" style="width:60%">
+                <input type="text" name="validate_code" required=""/>
+                <label>验证码</label>
+                <div class="validate_img" style="
+						width:50%;
+						height:80%;
+						position: absolute;
+  						bottom: 0;
+  						left: 120%;
+							"><img src="code.do" id="changecode"></div>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="agileits-bottom">
+            <input id="to_register" type="submit" value="提     交">
+        </div>
+        <div class="agileits-bottom">
+            <a href="./login.html">
+                <input id="href_login" type="submit" value="返回登陆">
+            </a>
+        </div>
+    </div>
+</div>
+<!-- //main -->
+<!-- copyright -->
+<div class="copyright">
+    <p> © 2016 适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+<!-- //copyright -->
+</body>
+</html>

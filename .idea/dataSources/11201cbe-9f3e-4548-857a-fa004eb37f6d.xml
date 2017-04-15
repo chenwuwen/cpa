@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="cpa@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="cpa">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="classnet"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="mytest"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sys"/>
+    <table id="9" parent="2" name="cpa_option">
+      <Comment>试题库选项表</Comment>
+    </table>
+    <table id="10" parent="2" name="cpa_repertory">
+      <Comment>题库表</Comment>
+    </table>
+    <table id="11" parent="2" name="cpa_solution">
+      <Comment>题库答案表</Comment>
+    </table>
+    <table id="12" parent="2" name="cpa_user">
+      <Comment>用户表</Comment>
+    </table>
+    <column id="13" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="9" name="re_id">
+      <Position>2</Position>
+      <Comment>试题ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="15" parent="9" name="select_data">
+      <Position>3</Position>
+      <Comment>选择内容即ABCD</Comment>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="16" parent="9" name="option_data">
+      <Position>4</Position>
+      <Comment>选项内容</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <index id="17" parent="9" name="re_id">
+      <ColNames>re_id</ColNames>
+    </index>
+    <key id="18" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="19" parent="9" name="cpa_option_ibfk_1">
+      <ColNames>re_id</ColNames>
+      <RefSchemaName>cpa</RefSchemaName>
+      <RefTableName>cpa_repertory</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="20" parent="10" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="10" name="test_stem">
+      <Position>2</Position>
+      <Comment>题干</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="22" parent="10" name="test_type">
+      <Position>3</Position>
+      <Comment>试题类型</Comment>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="23" parent="10" name="insert_date">
+      <Position>4</Position>
+      <Comment>插入时间</Comment>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <key id="24" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="11" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="11" name="re_id">
+      <Position>2</Position>
+      <Comment>题库ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="27" parent="11" name="result">
+      <Position>3</Position>
+      <Comment>正确答案选项</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <index id="28" parent="11" name="re_id">
+      <ColNames>re_id</ColNames>
+    </index>
+    <key id="29" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="30" parent="11" name="cpa_solution_ibfk_1">
+      <ColNames>re_id</ColNames>
+      <RefSchemaName>cpa</RefSchemaName>
+      <RefTableName>cpa_repertory</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="31" parent="12" name="id">
+      <Position>1</Position>
+      <Comment>用户表主键ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="12" name="username">
+      <Position>2</Position>
+      <Comment>登录名</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="12" name="password">
+      <Position>3</Position>
+      <Comment>登陆密码</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="12" name="petname">
+      <Position>4</Position>
+      <Comment>昵称</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="35" parent="12" name="gender">
+      <Position>5</Position>
+      <Comment>性别</Comment>
+      <DataType>char(2)|0</DataType>
+    </column>
+    <column id="36" parent="12" name="email">
+      <Position>6</Position>
+      <Comment>Email</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="37" parent="12" name="regdate">
+      <Position>7</Position>
+      <Comment>注册时间</Comment>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="38" parent="12" name="lastlogindate">
+      <Position>8</Position>
+      <Comment>上次登陆时间</Comment>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="39" parent="12" name="pet_name">
+      <Position>9</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="40" parent="12" name="reg_date">
+      <Position>10</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="41" parent="12" name="last_login_date">
+      <Position>11</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <index id="42" parent="12" name="UserName">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="43" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="44" parent="12" name="UserName">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>UserName</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

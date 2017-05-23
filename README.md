@@ -1,0 +1,4 @@
+# cpa
+一个会计在线考试系统
+项目使用Spring SpringMVC Hibernate基于Maven进行搭建,页面采用bootstrap Jquery实现,现已不更新该项目,项目将引入Angular来实现bootstrap单页开发,同时也进一步的实现maven来构建项目
+新仓库就叫NewCpa吧
